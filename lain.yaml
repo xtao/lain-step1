@@ -1,0 +1,18 @@
+appname: sample-app
+
+build:
+  base: laincloud/centos-lain:20160503
+  prepare:
+    version: 0
+    script:
+      - pip install -r pip-req.txt
+  script:
+    - pip install -r pip-req.txt
+
+web:
+  cmd: python service.py
+  port: 8080
+  memory: 32m
+  num_instances: 1
+  volumes:
+    - /logs:
